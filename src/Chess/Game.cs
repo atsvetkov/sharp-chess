@@ -8,7 +8,9 @@ namespace Chess
 		private static List<IRule> DefaultRules = new List<IRule>
 		{
 			new EmptyCellRule(),
-			new PlayerPieceSameColorRule()
+			new SameCellMoveRule(),
+			new PlayerPieceSameColorRule(),
+			new PawnMoveRule()
 		};
 
 		public Board Board { get; } = new Board();

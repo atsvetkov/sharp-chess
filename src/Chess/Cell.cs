@@ -9,7 +9,7 @@
 		{
 		}
 
-		private Cell(char col, int row)
+		public Cell(char col, int row)
 		{
 			X = col;
 			Y = row;
@@ -28,5 +28,10 @@
 		}
 
 		public override string ToString() => $"{(char)('a' + X)}{Y}";
-	}
+
+        public override bool Equals(object obj) => obj is Cell cell && cell.X == X && cell.Y == Y;
+
+		public static bool operator ==(Cell c1, Cell c2) => c1.Equals(c2);
+		public static bool operator !=(Cell c1, Cell c2) => !c1.Equals(c2);
+    }
 }

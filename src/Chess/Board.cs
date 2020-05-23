@@ -46,6 +46,8 @@ namespace Chess
 			[new Cell("e8")] = (Piece.King, Color.Black)
 		};
 
+		public (Piece, Color) GetPiece(Cell cell) => _pieces[cell];
+
 		public bool TryGetPiece(Cell cell, out (Piece, Color) coloredPiece)
 		{
 			if (_pieces.TryGetValue(cell, out (Piece, Color) value))
@@ -57,6 +59,8 @@ namespace Chess
 			coloredPiece = default;
 			return false;
 		}
+
+		public bool IsOccupied(Cell cell) => _pieces.ContainsKey(cell);
 
 		public MoveRecord ApplyMoveCommand(MoveCommand move)
 		{
